@@ -63,16 +63,15 @@ def main():
     
     # Process each floor
     for lvl, floor in enumerate(floors):
-        with open(output, 'w') as fh:
-            # Replace floors in FML with a single floor
-            floor['level'] = 0
-            fml['floors'] = [floor]
-            
-            # Then write the results
-            dst = output.replace('#', str(lvl), 1)
-            print('Writing file... {}'.format(dst))
-            with open(dst, 'w') as fh:
-                json.dump(fml, fh)
+        # Replace floors in FML with a single floor
+        floor['level'] = 0
+        fml['floors'] = [floor]
+        
+        # Then write the results
+        dst = output.replace('#', str(lvl), 1)
+        print('Writing file... {}'.format(dst))
+        with open(dst, 'w') as fh:
+            json.dump(fml, fh)
                 
     
     print('\nDone.')
